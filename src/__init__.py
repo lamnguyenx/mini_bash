@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
 
-# Copyright 2020-2024 (author: lamnguyenx)
+# Copyright 2024 (author: lamnguyenx)
 
-from .booleanify import booleanify
+from .mini_bash import mini_bash

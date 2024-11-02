@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "booleanify"
+name = "mini_bash"
 version = "0.1.0"
-description = "Easily convert common strings to boolean"
+description = "Easily run bash commands"
 authors = ["lamnguyenx <lamfm95@gmail.com>"]
 license = "apache"
 readme = "README.md"
-homepage = "https://github.com/lamnguyenx/booleanify.git"
+homepage = "https://github.com/lamnguyenx/mini_bash.git"
 
 [tool.poetry.dependencies]
 python = "^3.7"

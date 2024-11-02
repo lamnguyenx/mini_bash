@@ -1,46 +1,21 @@
-# Booleanify
+# mini_bash
 
-Inspired by Pydantic's boolean, Booleanify is a Python package that provides a simple utility for converting strings representing boolean values into actual boolean values.
+An easy way to run bash commands
 
 ## Installation
 
-You can install Booleanify using pip:
+You can install mini_bash using pip:
 
 ```bash
-pip install booleanify
+pip install mini_bash
 ```
 
 ## Usage
 
-To use Booleanify in your Python code, simply import the `booleanify` function and pass a string representing a boolean value to it. The function will return the corresponding boolean value.
-
 ```python
-from booleanify import booleanify
-
-result = booleanify("T")
-print(result)  # Output: True
-
-result = booleanify("false")
-print(result)  # Output: False
+from mini_bash import mini_bash
+mini_bash('ls -ltr')
 ```
-
-Booleanify supports the following string representations for boolean values:
-
-| Input  | Output |
-|--------|--------|
-| 1      | True   |
-| '1'    | True   |
-| 'on'   | True   |
-| 't'    | True   |
-| 'true' | True   |
-| 'y'    | True   |
-| 'yes'  | True   |
-| 0      | False  |
-| 'off'  | False  |
-| 'f'    | False  |
-| 'false'| False  |
-| 'n'    | False  |
-| 'no'   | False  |
 
 ## Contribution
 
