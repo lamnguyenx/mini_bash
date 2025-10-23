@@ -1,50 +1,75 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 0.1.0 → 1.0.0 (MAJOR: Initial constitution adoption)
+- Modified principles: All principles created from scratch
+- Added sections: Core Principles, Development Standards, Governance
+- Removed sections: None (template fully populated)
+- Templates requiring updates:
+  ✅ plan-template.md - Constitution Check section aligns with new principles
+  ✅ spec-template.md - No conflicts with new principles
+  ✅ tasks-template.md - No conflicts with new principles
+  ⚠ agent-file-template.md - Pending review
+  ⚠ checklist-template.md - Pending review
+- Follow-up TODOs: None - all placeholders resolved
+-->
+
+# mini_bash Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Minimalism & Focus
+Every feature must serve the core purpose of safe bash command execution; Avoid feature creep and unnecessary complexity; The package should remain small, focused, and dependency-free beyond Python standard library.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+**Rationale**: mini_bash exists to solve one problem well - running bash commands safely from Python. Additional features would dilute this purpose and increase maintenance burden.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Safety First (NON-NEGOTIABLE)
+All bash commands MUST run with `set -Eeuo pipefail` by default; Commands MUST fail fast on errors; RuntimeError MUST be raised with clear error messages including the failed command and stderr output.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: The primary value proposition is preventing silent failures in bash commands. Users rely on mini_bash to catch and report errors that would otherwise be missed.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Pythonic Interface
+API must follow Python conventions and idioms; Function signatures must be clear and intuitive; Return types must be predictable (stdout, stderr tuple); Documentation must be accessible and practical.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: As a Python library, mini_bash should feel natural to Python developers and integrate seamlessly with existing Python codebases.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Zero External Dependencies
+The package MUST NOT require any external dependencies beyond Python standard library; All functionality must be self-contained; Avoid introducing new dependencies unless absolutely necessary.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale**: One of mini_bash's key advantages is its simplicity and lack of dependency management complexity. This makes it easy to install and use in any Python environment.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Backward Compatibility
+Breaking changes require MAJOR version increments; Deprecation periods must be clearly communicated; Changes to default behavior must be justified and documented.
+
+**Rationale**: As a utility library, stability is crucial for users who integrate mini_bash into their workflows and production systems.
+
+## Development Standards
+
+### Package Management
+- Use Poetry for dependency management and packaging
+- Follow semantic versioning (MAJOR.MINOR.PATCH)
+- Maintain clear separation between development and runtime dependencies
+- Keep pyproject.toml configuration minimal and focused
+
+### Code Quality
+- Single responsibility principle: one module, one purpose
+- Type hints required for all public interfaces
+- Comprehensive docstrings following Python conventions
+- Error handling must be explicit and informative
+
+### Testing Approach
+- Manual testing required for all changes
+- Test coverage should include common bash command patterns
+- Edge cases: empty commands, commands with special characters, permission errors
+- Integration testing with real bash commands
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices and conventions. Amendments require:
+1. Documentation of the proposed change and rationale
+2. Review of impact on existing principles
+3. Version increment according to semantic versioning rules
+4. Update to dependent templates and documentation
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+All pull requests and code reviews must verify compliance with these principles. Complexity must be justified with clear user benefits. Use CLAUDE.md for runtime development guidance.
+
+**Version**: 1.0.0 | **Ratified**: 2025-10-23 | **Last Amended**: 2025-10-23
