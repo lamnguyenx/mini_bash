@@ -15,7 +15,7 @@ def mini_bash(
     shell: bool = True,
     capture_output: bool = True,
     text: bool = True,
-) -> tp.Tuple[str]:
+) -> tp.Tuple[str, str]:
     cmd = "set -Eeuo pipefail\n" + cmd
     Result = subprocess.run(
         cmd,
