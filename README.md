@@ -1,6 +1,6 @@
 # mini_bash
 
-An easy way to run bash commands
+> **Summary**: A Python package providing an easy way to run bash commands programmatically, simplifying shell script execution in Python applications.
 
 ## Installation
 
