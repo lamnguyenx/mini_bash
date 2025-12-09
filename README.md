@@ -17,6 +17,18 @@ from mini_bash import mini_bash
 mini_bash('ls -ltr')
 ```
 
+## Advanced Usage
+
+```python
+from mini_bash import mini_bash
+
+# Run a command and capture both stdout and stderr
+stdout, stderr = mini_bash('echo "Hello from stdout" && echo "Warning from stderr" >&2')
+
+print("STDOUT:", stdout.strip())
+print("STDERR:", stderr.strip())
+```
+
 ## Contribution
 
 If you have any suggestions, improvements, or issues regarding Booleanify, feel free to open an issue or submit a pull request on GitHub.
