@@ -1,14 +1,8 @@
 #!/usr/bin/env python3
 
-# Copyright 2024 (author: lamnt45)
-
-
-# technical
 import typing as tp
 import subprocess
 
-
-### FUNCTIONS
 def mini_bash(
     cmd: str,
     executable: str = "/bin/bash",
